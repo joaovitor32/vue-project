@@ -5,6 +5,11 @@
 yarn install
 ```
 
+### Run json server
+```
+yarn json-server
+```
+
 ### Compiles and hot-reloads for development
 ```
 yarn serve
