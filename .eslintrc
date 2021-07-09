@@ -1,86 +1,87 @@
 {
-    "env": {
-        "browser": true,
-        "es2020": true
-    },
-    "root": true,
-    "extends": [
-        "eslint:recommended",
-        "plugin:vue/essential",
-        "plugin:@typescript-eslint/recommended",
-        "plugin:vue/vue3-recommended"
-    ],
-    "parser": "vue-eslint-parser",
-    "parserOptions": {
-        "ecmaVersion": 12,
-        "parser": "@typescript-eslint/parser",
-        "sourceType": "module"
-    },
-    "plugins": [
-        "vue",
-        "@typescript-eslint"
-    ],
-    "rules": {
-      "max-len": [0],
-      "import/no-unresolved": "off",
-      "no-unused-expressions": ["error", { "allowTernary": true }],
-      "no-param-reassign": 0,
-      "quote-props": ["error", "consistent"],
-      // vue rules
-      "vue/order-in-components": ["error", {
-        "order": [
-          "el",
-          "name",
-          "parent",
-          "functional",
-          ["delimiters", "comments"],
-          ["components", "directives", "filters"],
-          "extends",
-          "mixins",
-          "inheritAttrs",
-          "model",
-          ["props", "propsData"],
-          "data",
-          "computed",
-          "watch",
-          "LIFECYCLE_HOOKS",
-          "methods",
-          ["template", "render"],
-          "renderError"
-        ]
-      }],
-      "vue/html-closing-bracket-newline": ["error", {
-        "singleline": "never",
-        "multiline": "never"
-      }],
-      "vue/html-closing-bracket-spacing": ["error", {
-        "startTag": "never",
-        "endTag": "never",
-        "selfClosingTag": "always"
-      }],
-      "vue/script-indent": ["error", 2, {
-        "baseIndent": 0,
-        "switchCase": 1,
-        "ignores": []
-      }],
-      "vue/html-indent": ["error", 2, {
-        "attribute": 1,
-        "baseIndent": 1,
-        "closeBracket": 1,
-        "alignAttributesVertically": true,
-        "ignores": []
-      }],
-      "vue/max-attributes-per-line": [2, {
-        "singleline": 1,
-        "multiline": {
-          "max": 1,
-          "allowFirstLine": false
-        }
-      }]
-    },
-    "settings": {
-      "import/resolver": {
-        "typescript": {}
+  "env": {
+      "browser": true,
+      "es2020": true
+  },
+  "root": true,
+  "extends": [
+      "eslint:recommended",
+      "plugin:vue/essential",
+      "plugin:@typescript-eslint/recommended",
+      "plugin:vue/vue3-recommended"
+  ],
+  "parser": "vue-eslint-parser",
+  "parserOptions": {
+      "ecmaVersion": 12,
+      "parser": "@typescript-eslint/parser",
+      "sourceType": "module"
+  },
+  "plugins": [
+      "vue",
+      "@typescript-eslint"
+  ],
+  "rules": {
+    "max-len": [0],
+    "import/no-unresolved": "off",
+    "no-unused-expressions": ["error", { "allowTernary": true }],
+    "no-param-reassign": 0,
+    "quote-props": ["error", "consistent"],
+    // vue rules
+    "vue/order-in-components": ["error", {
+      "order": [
+        "el",
+        "name",
+        "parent",
+        "functional",
+        ["delimiters", "comments"],
+        ["components", "directives", "filters"],
+        "extends",
+        "mixins",
+        "inheritAttrs",
+        "model",
+        ["props", "propsData"],
+        "data",
+        "computed",
+        "watch",
+        "LIFECYCLE_HOOKS",
+        "methods",
+        ["template", "render"],
+        "renderError"
+      ]
+    }],
+    "vue/html-closing-bracket-newline": ["error", {
+      "singleline": "never",
+      "multiline": "never"
+    }],
+    "vue/html-closing-bracket-spacing": ["error", {
+      "startTag": "never",
+      "endTag": "never",
+      "selfClosingTag": "always"
+    }],
+    "vue/script-indent": ["error", 2, {
+      "baseIndent": 0,
+      "switchCase": 1,
+      "ignores": []
+    }],
+    "vue/html-indent": ["error", 2, {
+      "attribute": 1,
+      "baseIndent": 1,
+      "closeBracket": 1,
+      "alignAttributesVertically": true,
+      "ignores": []
+    }],
+    "vue/no-multiple-template-root": "off" ,
+    "vue/max-attributes-per-line": [2, {
+      "singleline": 1,
+      "multiline": {
+        "max": 1,
+        "allowFirstLine": false
       }
+    }]
+  },
+  "settings": {
+    "import/resolver": {
+      "typescript": {}
     }
+  }
 }
