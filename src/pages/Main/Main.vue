@@ -1,7 +1,17 @@
 <template>
   <div>
-    <p style="font-size: 120px">Main page</p>
+    <ul>
+      <li v-for="item in projects" :key="item.id">
+        <ProjectItem
+          :id="item.id"
+          :name="item.name"
+          :description="item.description"
+          :url="item.url" />
+        {{ item.name }}
+      </li>
+    </ul>
   </div>
+  <FooterComponent />
 </template>
 
 <script lang="ts">
@@ -20,17 +30,17 @@ export default defineComponent({
   name: "MainPage",
   data() {
     return {
-      projects: [],
+      projects: [] as Project[],
     };
   },
-  mounted() {
-    this.load();
+  async created() {
+    await this.load();
   },
   methods: {
     async load() {
       try {
         const response = await api.get<Project[]>("/projects");
-        this.$data.projects = response.data;
+        this.projects = response.data;
       } catch (err) {
         throw Error(err);
       }
