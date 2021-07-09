@@ -1,9 +1,17 @@
 import { createApp } from "vue";
 import vuetify from "./plugins/vuetify";
 import Header from "../src/components/Header/Header.vue";
+import Footer from "../src/components/Footer/Footer.vue";
+
+import ProjectItem from "../src/pages/Main/components/ProjectItem.vue";
+
 import router from "./router";
 
-createApp(Header)
-  .use(router)
-  .use(vuetify)
-  .mount("#app");
+const app = createApp(Header);
+
+app.component("FooterComponent", Footer);
+app.component("ProjectItem", ProjectItem);
+
+app.use(router);
+app.use(vuetify);
+app.mount("#app");
