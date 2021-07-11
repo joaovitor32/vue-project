@@ -3,7 +3,7 @@ import vuetify from "./plugins/vuetify";
 import Header from "../src/components/Header/Header.vue";
 import Footer from "../src/components/Footer/Footer.vue";
 
-import ProjectItem from "../src/pages/Main/components/ProjectItem.vue";
+import ProjectItem from "../src/pages/Projetos/components/ProjectItem.vue";
 
 import router from "./router";
 

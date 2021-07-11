@@ -1,7 +1,7 @@
 <template>
-  <footer>
+  <v-footer class="footer">
     <p>Desenvolvido por João Vitor Muniz Lopes - 2021</p>
-  </footer>
+  </v-footer>
 </template>
 <script lang="ts">
 import { defineComponent } from "vue";
@@ -12,17 +12,18 @@ export default defineComponent({
 </script>
 
 <style scoped>
-footer {
+.footer {
   display: flex;
   text-align: center;
   justify-content: center;
-  background-color: #16151a;
+  background-color: red;
   bottom: 0;
   position: fixed;
   width: 100%;
+  left: 0;
   z-index: 10;
 }
-footer > p {
+.footer > p {
   color: #ed8e2a;
   font-family: "Monteserrat", sans-serif;
   font-weight: bold;

@@ -1,35 +1,49 @@
 <template>
   <div id="app">
-    <nav>
-      <div class="header">
-        <a
-          href="#default"
-          class="logo">CompanyLogo</a>
-        <div class="header-right">
-          <router-link
-            :to="{ path: 'main' }"
-            tag="li">
-            <a>
-              <span>Logar</span>
-            </a>
-          </router-link>
-          <a href="#contact">Contact</a>
-          <a href="#about">About</a>
-        </div>
-      </div>
-    </nav>
-    <router-view />
+    <v-app>
+      <v-app-bar elevate-on-scroll>
+        <nav>
+          <div class="header">
+            <a
+              href="#default"
+              class="logo">Vue project</a>
+            <div class="header-right">
+              <router-link
+                :to="{ path: 'projetos' }"
+                tag="li">
+                <a>
+                  <span>Projetos</span>
+                </a>
+              </router-link>
+              <a href="#contact">Contact</a>
+              <a href="#about">About</a>
+            </div>
+          </div>
+        </nav>
+      </v-app-bar>
+
+      <v-main>
+        <v-container fluid>
+          <router-view />
+        </v-container>
+      </v-main>
+
+      <FooterComponent />
+    </v-app>
   </div>
 </template>
 
 <script lang="ts">
-import { Vue } from "vue-class-component";
+import { defineComponent } from "vue";
 
-export default class Header extends Vue {}
+export default defineComponent({
+  name: "Header",
+});
 </script>
 
 <style scoped>
 /* Style the header with a grey background and some padding */
+
 .header {
   overflow: hidden;
   background-color: #f1f1f1;

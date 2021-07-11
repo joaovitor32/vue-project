@@ -1,9 +1,13 @@
 <template>
-  <div v-if="projectItem">
+  <div
+    v-if="projectItem"
+    class="content">
     <p>{{ projectItem.name }}</p>
     <p>{{ projectItem.description }}</p>
+    <img
+      :src="projectItem.url"
+      :alt="projectItem.name">
   </div>
-  <FooterComponent />
 </template>
 
 <script lang="ts">
@@ -34,4 +38,20 @@ export default defineComponent({
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.content {
+  display: flex;
+  width: 90%;
+  padding: 50px 40px;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 auto;
+  border-radius: 25px;
+}
+.content > p {
+  font-size: 16px;
+}
+.content > img {
+  width: 32%;
+  height: 32%;
+}
 </style>

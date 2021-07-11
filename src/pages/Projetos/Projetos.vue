@@ -4,16 +4,10 @@
       <li
         v-for="item in projects"
         :key="item.id">
-        <ProjectItem
-          :id="item.id"
-          :name="item.name"
-          :description="item.description"
-          :url="item.url" />
-        {{ item.name }}
+        <ProjectItem :project-item="item" />
       </li>
     </ul>
   </div>
-  <FooterComponent />
 </template>
 
 <script lang="ts">
@@ -29,7 +23,7 @@ interface Project {
 }
 
 export default defineComponent({
-  name: "MainPage",
+  name: "ProjetoPage",
   data() {
     return {
       projects: [] as Project[],
