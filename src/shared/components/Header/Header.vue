@@ -1,43 +1,54 @@
 <template>
-  <div id="app">
-    <v-app>
-      <v-app-bar elevate-on-scroll>
-        <nav>
-          <div class="header">
-            <a
-              href="#default"
-              class="logo">Vue project</a>
-            <div class="header-right">
-              <router-link
-                :to="{ path: 'projetos' }"
-                tag="li">
-                <a>
-                  <span>Projetos</span>
-                </a>
-              </router-link>
-              <a href="#contact">Contact</a>
-              <a href="#about">About</a>
-            </div>
+  <v-app :theme="theme">
+    <v-app-bar
+      color="primary"
+      elevate-on-scroll>
+      <nav>
+        <div class="header">
+          <a
+            href="#default"
+            class="logo">Vue project</a>
+          <div class="header-right">
+            <router-link
+              :to="{ path: 'projetos' }"
+              tag="li">
+              <a>
+                <span>Projetos</span>
+              </a>
+            </router-link>
+            <a href="#contact">Contact</a>
+            <a href="#about">About</a>
           </div>
-        </nav>
-      </v-app-bar>
+        </div>
+      </nav>
+    </v-app-bar>
 
-      <v-main>
-        <v-container fluid>
-          <router-view />
-        </v-container>
-      </v-main>
+    <v-main>
+      <v-container fluid>
+        <router-view :toggle-theme="toggleTheme" />
+      </v-container>
+    </v-main>
 
-      <FooterComponent />
-    </v-app>
-  </div>
+    <FooterComponent />
+  </v-app>
+  <div id="app" />
 </template>
 
-<script lang="ts">
+    <script lang="ts">
+import { ref } from "vue";
 import { defineComponent } from "vue";
 
 export default defineComponent({
   name: "Header",
+  setup() {
+    const theme = ref("light");
+
+    return {
+      theme,
+      toggleTheme: () =>
+        (theme.value = theme.value === "light" ? "dark" : "light"),
+    };
+  },
 });
 </script>
 

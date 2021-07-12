@@ -1,6 +1,8 @@
 <template>
-  <v-footer class="footer">
-    <p>Desenvolvido por João Vitor Muniz Lopes - 2021</p>
+  <v-footer class="bg-primary footer">
+    <p class="text-secondary">
+      Desenvolvido por João Vitor Muniz Lopes - 2021
+    </p>
   </v-footer>
 </template>
 <script lang="ts">
@@ -16,7 +18,6 @@ export default defineComponent({
   display: flex;
   text-align: center;
   justify-content: center;
-  background-color: red;
   bottom: 0;
   position: fixed;
   width: 100%;
@@ -24,7 +25,6 @@ export default defineComponent({
   z-index: 10;
 }
 .footer > p {
-  color: #ed8e2a;
   font-family: "Monteserrat", sans-serif;
   font-weight: bold;
   font-size: 0.8em;
