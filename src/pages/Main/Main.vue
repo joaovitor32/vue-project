@@ -1,51 +1,32 @@
 <template>
   <div>
-    <ul>
-      <li
-        v-for="item in projects"
-        :key="item.id">
-        <ProjectItem
-          :id="item.id"
-          :name="item.name"
-          :description="item.description"
-          :url="item.url" />
-        {{ item.name }}
-      </li>
-    </ul>
+    <p>Essa é a página principal</p>
+    <v-btn
+      class="bg-secondary"
+      @click="toggleTheme">
+      Mudar tema
+    </v-btn>
   </div>
-  <FooterComponent />
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
 
-import api from "../../shared/service/axios";
-
-interface Project {
-  id: number;
-  name: string;
-  description: string;
-  url: string;
+interface Props {
+  [key: string]: string;
 }
 
 export default defineComponent({
   name: "MainPage",
-  data() {
-    return {
-      projects: [] as Project[],
-    };
-  },
-  async created() {
-    await this.load();
-  },
-  methods: {
-    async load() {
-      try {
-        const response = await api.get<Project[]>("/projects");
-        this.projects = response.data;
-      } catch (err) {
-        throw Error(err);
-      }
+  props: {
+    toggleTheme: {
+      type: Object as () => Props,
+      default(this: void, toggleTheme: () => Props) {
+        return toggleTheme;
+      },
+      validator(this: void, toggleTheme: () => Props) {
+        return !!toggleTheme;
+      },
     },
   },
 });
