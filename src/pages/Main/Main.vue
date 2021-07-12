@@ -1,11 +1,13 @@
 <template>
-  <div>
-    <p>Essa é a página principal</p>
-    <v-btn
-      class="bg-secondary"
-      @click="toggleTheme">
-      Mudar tema
-    </v-btn>
+  <div class="main-div">
+    <div>
+      <p>Essa é a página principal</p>
+      <v-btn
+        class="bg-secondary"
+        @click="toggleTheme">
+        Mudar tema
+      </v-btn>
+    </div>
   </div>
 </template>
 
@@ -34,4 +36,12 @@ export default defineComponent({
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.main-div {
+  height:90vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+}
 </style>
