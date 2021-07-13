@@ -1,13 +1,16 @@
 <template>
-  <div
+  <v-card
     v-if="projectItem"
+    :elevation="18"
+    :hover="'4dp'"
+    :tile="true"
     class="content">
     <p>{{ projectItem.name }}</p>
     <p>{{ projectItem.description }}</p>
     <img
       :src="projectItem.url"
       :alt="projectItem.name">
-  </div>
+  </v-card>
 </template>
 
 <script lang="ts">
@@ -44,7 +47,7 @@ export default defineComponent({
   padding: 50px 40px;
   align-items: center;
   justify-content: space-between;
-  margin: 0 auto;
+  margin: 2% auto;
   border-radius: 25px;
 }
 .content > p {
