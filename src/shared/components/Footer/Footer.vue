@@ -1,6 +1,6 @@
 <template>
-  <v-footer class="bg-primary footer">
-    <p class="text-secondary">
+  <v-footer class="bg-secondary footer">
+    <p class="text-primary">
       Desenvolvido por João Vitor Muniz Lopes - 2021
     </p>
   </v-footer>

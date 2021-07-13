@@ -1,11 +1,11 @@
 export const light = {
-  primary: "#326e6e",
-  secondary: "#c1c7df",
+  primary: "#c1c7df",
+  secondary: "#326e6e",
   terciary: "#fefefe",
 };
 
 export const dark = {
-  primary: "#16151a",
-  secondary: "#ed8e2a",
-  terciary: "#7c99bb",
+  primary: "#17191a",
+  secondary: "#81a2be",
+  terciary: "#bbbebd",
 };
