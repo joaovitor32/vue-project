@@ -7,9 +7,11 @@
     class="content">
     <p>{{ projectItem.name }}</p>
     <p>{{ projectItem.description }}</p>
-    <img
+    <v-img
+      :width="'24%'"
+      :height="'24%'"
       :src="projectItem.url"
-      :alt="projectItem.name">
+      :alt="projectItem.name" />
   </v-card>
 </template>
 
