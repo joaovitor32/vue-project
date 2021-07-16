@@ -4,26 +4,27 @@
       :density="'comfortable'"
       :elevation="'12'"
       color="secondary"
-      class="navbar"
       elevate-on-scroll>
-      <v-app-bar-title style="padding: 8px 1%; font-family: Comfortaa">
-        Vue project
-      </v-app-bar-title>
-      <div>
-        <router-link
-          :to="{ path: 'projetos' }"
-          tag="li">
-          <a>
-            <span>Projetos</span>
-          </a>
-        </router-link>
-        <router-link
-          :to="{ path: 'contact' }"
-          tag="li">
-          <a>
-            <span>Contacts</span>
-          </a>
-        </router-link>
+      <div class="navbar">
+        <v-app-bar-title style="padding: 8px 1%; font-family: Comfortaa">
+          Vue project
+        </v-app-bar-title>
+        <div id="nav-link-box">
+          <router-link
+            :to="{ path: 'projetos' }"
+            tag="li">
+            <a>
+              <span>Projetos</span>
+            </a>
+          </router-link>
+          <router-link
+            :to="{ path: 'contact' }"
+            tag="li">
+            <a>
+              <span>Contacts</span>
+            </a>
+          </router-link>
+        </div>
       </div>
     </v-app-bar>
 
@@ -60,15 +61,21 @@ export default defineComponent({
 @import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 /* Style the header with a grey background and some padding */
-
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   text-align: center;
-  width: 100%;
+  width:100%
 }
-
+#nav-link-box{
+  padding:0% 4rem;
+  width:20rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+}
 * {
   margin: 0;
   padding: 0;
