@@ -13,14 +13,14 @@
           <router-link
             :to="{ path: 'projetos' }"
             tag="li">
-            <a>
+            <a class="text-primary">
               <span>Projetos</span>
             </a>
           </router-link>
           <router-link
             :to="{ path: 'contact' }"
             tag="li">
-            <a>
+            <a class="text-primary">
               <span>Contacts</span>
             </a>
           </router-link>
@@ -58,23 +58,32 @@ export default defineComponent({
 </script>
 
 <style scoped>
-@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
-/* Style the header with a grey background and some padding */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   text-align: center;
-  width:100%
+  width: 100%;
 }
-#nav-link-box{
-  padding:0% 4rem;
-  width:20rem;
+#nav-link-box {
+  padding: 0% 4rem;
+  width: 20rem;
   display: flex;
   justify-content: space-around;
   align-items: center;
   text-align: center;
+}
+a {
+  display: block;
+  padding: 8px 15px;
+  text-decoration: none;
+  font-weight: bold;
+  font-family: "Comfortaa";
+}
+a:hover {
+  background: rgba(255,255,255,0.1);
+  border-radius:8px;
+  transition:0.5s;
 }
 * {
   margin: 0;

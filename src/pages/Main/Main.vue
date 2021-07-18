@@ -66,7 +66,6 @@ export default defineComponent({
   justify-content: space-around;
   align-items: center;
   text-align: center;
-
 }
 #inner-main-title {
   font-size: 3.2em;
