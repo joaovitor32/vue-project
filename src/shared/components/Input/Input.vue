@@ -7,17 +7,17 @@
       class="text-secondary label">
       {{ label }}
     </p>
-    <input
-      v-model="model"
+
+    <Field
       :name="name"
-      :value="value"
-      class="input"
-      :type="type">
+      :class="'input'"
+      :type="type" />
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
+import { Field } from "vee-validate";
 
 interface IIsErroredContainer {
   color?: string;
@@ -33,6 +33,9 @@ interface IIsErroredLabel {
 
 export default defineComponent({
   name: "Input",
+  components: {
+    Field,
+  },
   props: {
     label: {
       type: String,
@@ -41,7 +44,8 @@ export default defineComponent({
     },
     value: {
       type: String,
-      required: true,
+      required: false,
+      default: "",
     },
     name: {
       type: String,
@@ -91,25 +95,6 @@ export default defineComponent({
         };
       }
       return {};
-    },
-    model:{
-      get():string{
-        return this.value
-      },
-      set(value:string):void{
-        this.$emit('input',value)
-      }
-    }
-  },
-  emits: ["input"],
-  watch: {
-    /*-- Validação pode ser adicionada aqui se for o caso --*/
-    value: {
-      handler(value) {
-        if (value) {
-          this.isErroredLocal = false;
-        }
-      },
     },
   },
 });

@@ -28,19 +28,16 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 
-interface Props {
-  [key: string]: string;
-}
 
 export default defineComponent({
   name: "MainPage",
   props: {
     toggleTheme: {
-      type: Object as () => Props,
-      default(this: void, toggleTheme: () => Props) {
+      type: Function,
+      default(this: void, toggleTheme:()=>string) {
         return toggleTheme;
       },
-      validator(this: void, toggleTheme: () => Props) {
+      validator(this: void, toggleTheme:()=>string) {
         return !!toggleTheme;
       },
     },

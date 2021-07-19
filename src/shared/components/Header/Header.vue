@@ -24,6 +24,13 @@
               <span>Contacts</span>
             </a>
           </router-link>
+          <router-link
+            :to="{ path: 'new-project' }"
+            tag="li">
+            <a class="text-primary">
+              <span>New project</span>
+            </a>
+          </router-link>
         </div>
       </div>
     </v-app-bar>
@@ -67,7 +74,7 @@ export default defineComponent({
 }
 #nav-link-box {
   padding: 0% 4rem;
-  width: 20rem;
+  width: 25rem;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -79,11 +86,12 @@ a {
   text-decoration: none;
   font-weight: bold;
   font-family: "Comfortaa";
+  white-space: nowrap
 }
 a:hover {
-  background: rgba(255,255,255,0.1);
-  border-radius:8px;
-  transition:0.5s;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  transition: 0.5s;
 }
 * {
   margin: 0;
