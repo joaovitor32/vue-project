@@ -13,7 +13,7 @@ const routes = <Array<RouteRecordRaw>>[
   },
   { name: "ProjetoPage", path: "/projetos", component: ProjetosPage },
   { name: "ContactPage", path: "/contact", component: ContactPage },
-  { name: "ProjectPage", path: "/new-project", component: NewProject },
+  { name: "NewProject", path: "/new-project", component: NewProject },
 ];
 
 export default routes;
