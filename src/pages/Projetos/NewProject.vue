@@ -1,23 +1,23 @@
 <template>
-  <Form v-slot="{ errors }" :validation-schema="schema" @submit="onSubmit">
+  <Form
+    v-slot="{ errors }"
+    :validation-schema="schema"
+    @submit="onSubmit">
     <Input
       :name="'name'"
       :type="'text'"
       :label="'nome'"
-      :is-errored="!!errors.name"
-    />
+      :is-errored="!!errors.name" />
     <Input
       :name="'description'"
       :type="'text'"
       :label="'descrição'"
-      :is-errored="!!errors.description"
-    />
+      :is-errored="!!errors.description" />
     <Input
       :name="'url'"
       :type="'text'"
       :label="'url'"
-      :is-errored="!!errors.url"
-    />
+      :is-errored="!!errors.url" />
     <Button :button-title="'Cadastrar'" />
   </Form>
 </template>

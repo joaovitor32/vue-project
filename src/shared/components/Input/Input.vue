@@ -8,16 +8,20 @@
       {{ label }}
     </p>
 
-    <Field
+    <input
+      :id="name"
       :name="name"
-      :class="'input'"
-      :type="type" />
+      :type="type"
+      :value="inputValue"
+      :placeholder="placeholder"
+      @input="handleChange"
+      @blur="handleBlur">
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import { Field } from "vee-validate";
+import { useField } from "vee-validate";
 
 interface IIsErroredContainer {
   color?: string;
@@ -33,9 +37,6 @@ interface IIsErroredLabel {
 
 export default defineComponent({
   name: "Input",
-  components: {
-    Field,
-  },
   props: {
     label: {
       type: String,
@@ -70,6 +71,27 @@ export default defineComponent({
     return {
       isErroredLocal: this.isErrored,
       isFocusedLocal: this.isFocused,
+    };
+  },
+  setup(props) {
+    // we don't provide any rules here because we are using form-level validation
+    // https://vee-validate.logaretm.com/v4/guide/validation#form-level-validation
+    const {
+      value: inputValue,
+      errorMessage,
+      handleBlur,
+      handleChange,
+      meta,
+    } = useField(props.name, undefined, {
+      initialValue: props.value,
+    });
+
+    return {
+      handleChange,
+      handleBlur,
+      errorMessage,
+      inputValue,
+      meta,
     };
   },
   computed: {
