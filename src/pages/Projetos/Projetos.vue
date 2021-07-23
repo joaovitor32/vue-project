@@ -14,13 +14,7 @@
 import { defineComponent } from "vue";
 
 import api from "../../shared/service/axios";
-
-interface Project {
-  id: number;
-  name: string;
-  description: string;
-  url: string;
-}
+import Project from "../../shared/entities/ProjectEntity";
 
 export default defineComponent({
   name: "ProjetoPage",

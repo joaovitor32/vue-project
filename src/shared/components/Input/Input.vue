@@ -10,6 +10,7 @@
 
     <input
       :id="name"
+      :class="'input'"
       :name="name"
       :type="type"
       :value="inputValue"
@@ -67,12 +68,7 @@ export default defineComponent({
       required: true,
     },
   },
-  data() {
-    return {
-      isErroredLocal: this.isErrored,
-      isFocusedLocal: this.isFocused,
-    };
-  },
+
   setup(props) {
     // we don't provide any rules here because we are using form-level validation
     // https://vee-validate.logaretm.com/v4/guide/validation#form-level-validation
@@ -96,13 +92,13 @@ export default defineComponent({
   },
   computed: {
     containerStyle(): IIsErroredContainer {
-      if (this.isErroredLocal) {
+      if (this.isErrored) {
         return {
           border: "1px solid #c53030",
           background: "rgba(197,48,48,0.5)",
         };
       }
-      if (this.isFocusedLocal) {
+      if (this.isFocused) {
         return {
           border: "1px solid #c53030",
           background: "rgba(197,48,48,0.5)",
@@ -128,7 +124,7 @@ export default defineComponent({
   border-radius: 10px;
   padding: 16px;
   width: 90%;
-  margin: 0% auto;
+  margin: 2% auto;
   display: flex;
   align-items: center;
 }
@@ -139,6 +135,7 @@ export default defineComponent({
   flex: 1;
   background: transparent;
   border: 0;
+  width:80%;
   color: #f4ede8;
 }
 .input::placeholder {

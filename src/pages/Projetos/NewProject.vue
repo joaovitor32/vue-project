@@ -1,6 +1,7 @@
 <template>
   <Form
     v-slot="{ errors }"
+    class="form"
     :validation-schema="schema"
     @submit="onSubmit">
     <Input
@@ -26,15 +27,20 @@
 // https://jasonwatmore.com/post/2020/10/01/vue-3-veevalidate-form-validation-example
 // https://vee-validate.logaretm.com/v4/guide/components/validation#custom-field-labels
 
-/*
-
-https://codesandbox.io/s/custom-text-input-with-vee-validate-v4-8k9gy?from-embed=&file=/src/App.vue
-
-*/
-
 import { defineComponent } from "vue";
+import { Form, FormState } from "vee-validate";
+import { uuid } from "vue-uuid";
 import newProjectValidation from "../../shared/validations/newProjectValidation";
-import { Form } from "vee-validate";
+import api from "../../shared/service/axios";
+
+import Project from "../../shared/entities/ProjectEntity";
+
+type ProjectData = Omit<Project, "id">;
+
+interface IResetForm {
+  resetForm: (state?: Partial<FormState<ProjectData>>) => void;
+}
+
 export default defineComponent({
   name: "NewProject",
   components: {
@@ -42,8 +48,17 @@ export default defineComponent({
   },
   setup() {
     const schema = newProjectValidation;
-    const onSubmit = () => {
-      console.log("Button");
+    const onSubmit = async (
+      { name, description, url }: Omit<Project, "id">,
+      { resetForm }: IResetForm
+    ) => {
+      await api.post("projects", {
+        id: uuid.v4(),
+        name,
+        description,
+        url,
+      });
+      resetForm();
     };
     return {
       schema,
@@ -55,4 +70,13 @@ export default defineComponent({
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.form {
+  justify-items: center;
+  text-align: center;
+  align-items: center;
+  margin-top: 8%;
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+}
 </style>
