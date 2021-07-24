@@ -1,11 +1,16 @@
 <template>
-  <div>
+  <div
+    v-if="loading"
+    class="loading-box">
+    <Loading />
+  </div>
+  <div v-if="!loading">
     <ul>
-      <li
+      <div
         v-for="item in projects"
         :key="item.id">
         <ProjectItem :project-item="item" />
-      </li>
+      </div>
     </ul>
   </div>
 </template>
@@ -20,6 +25,7 @@ export default defineComponent({
   name: "ProjetoPage",
   data() {
     return {
+      loading: true,
       projects: [] as Project[],
     };
   },
@@ -31,6 +37,7 @@ export default defineComponent({
       try {
         const response = await api.get<Project[]>("/projects");
         this.projects = response.data;
+        this.loading = false;
       } catch (err) {
         throw Error(err);
       }
@@ -41,4 +48,9 @@ export default defineComponent({
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.loading-box {
+  position: fixed;
+  top: 45%;
+  left: 45%;
+}
 </style>

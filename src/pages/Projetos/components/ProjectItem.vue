@@ -5,11 +5,18 @@
     :hover="'4dp'"
     :tile="true"
     class="content">
-    <p>{{ projectItem.name }}</p>
-    <p>{{ projectItem.description }}</p>
+    <v-card-title>{{ projectItem.name }}</v-card-title>
+
+    <v-spacer />
+
+    <v-card-subtitle>{{ projectItem.description }}</v-card-subtitle>
+
+    <v-spacer />
+
     <v-img
-      :width="'24%'"
-      :height="'24%'"
+      :width="'56%'"
+      :height="'56%'"
+      class="rounded-img"
       :src="projectItem.url"
       :alt="projectItem.name" />
   </v-card>
@@ -45,18 +52,16 @@ export default defineComponent({
 <style scoped>
 .content {
   display: flex;
-  width: 90%;
+  flex-direction: column;
+  width: 50%;
   padding: 50px 40px;
   align-items: center;
   justify-content: space-between;
   margin: 2% auto;
   border-radius: 25px;
 }
-.content > p {
-  font-size: 16px;
-}
-.content > img {
-  width: 32%;
-  height: 32%;
+.rounded-img {
+  border-radius: 50%;
+  margin: 2% auto;
 }
 </style>

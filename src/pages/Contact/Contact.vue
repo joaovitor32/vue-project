@@ -51,8 +51,8 @@ export default defineComponent({
   name: "ContactPage",
   data() {
     return {
-      show: false
-    }
+      show: false,
+    };
   },
   computed: {
     iconUrl() {
@@ -61,7 +61,7 @@ export default defineComponent({
   },
   mounted() {
     this.show = true; // might need this.$nextTick
-  }
+  },
 });
 </script>
 

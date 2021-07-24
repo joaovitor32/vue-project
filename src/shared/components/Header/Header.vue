@@ -13,21 +13,21 @@
           <router-link
             :to="{ path: 'projetos' }"
             tag="li">
-            <a class="text-primary">
+            <a class="text-terciary">
               <span>Projetos</span>
             </a>
           </router-link>
           <router-link
             :to="{ path: 'contact' }"
             tag="li">
-            <a class="text-primary">
+            <a class="text-terciary">
               <span>Contacts</span>
             </a>
           </router-link>
           <router-link
             :to="{ path: 'new-project' }"
             tag="li">
-            <a class="text-primary">
+            <a class="text-terciary">
               <span>New project</span>
             </a>
           </router-link>
