@@ -9,7 +9,9 @@
       <div
         v-for="item in projects"
         :key="item.id">
-        <ProjectItem :project-item="item" />
+        <ProjectItem
+          class="project-item"
+          :project-item="item" />
       </div>
     </ul>
   </div>
@@ -31,8 +33,20 @@ export default defineComponent({
   },
   async created() {
     await this.load();
+    window.addEventListener("scroll", this.handleScroll);
+  },
+  unmounted() {
+    window.removeEventListener("scroll", this.handleScroll);
   },
   methods: {
+    handleScroll(_: any) {
+      const lastScrollPosition = window.scrollY;
+      const projectsItem = document.getElementsByClassName("project-item");
+      Object.values(projectsItem).map((elem:any) =>
+        console.log(elem.offsetTop)
+      );
+      //console.log(lastScrollPosition, projectsItem[0]);
+    },
     async load() {
       try {
         const response = await api.get<Project[]>("/projects");
