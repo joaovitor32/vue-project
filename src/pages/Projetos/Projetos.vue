@@ -41,10 +41,6 @@ export default defineComponent({
   methods: {
     handleScroll(_: any) {
       const lastScrollPosition = window.scrollY;
-      const projectsItem = document.getElementsByClassName("project-item");
-      Object.values(projectsItem).map((elem:any) =>
-        console.log(elem.offsetTop)
-      );
       //console.log(lastScrollPosition, projectsItem[0]);
     },
     async load() {
