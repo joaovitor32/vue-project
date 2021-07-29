@@ -11,7 +11,7 @@
         :key="item.id">
         <ProjectItem
           class="project-item"
-          :project-item="item" />
+          :project-item="item.project" />
       </div>
     </ul>
   </div>
@@ -23,12 +23,17 @@ import { defineComponent } from "vue";
 import api from "../../shared/service/axios";
 import Project from "../../shared/entities/ProjectEntity";
 
+interface IProjectItem {
+  active: boolean;
+  project: Project;
+}
+
 export default defineComponent({
   name: "ProjetoPage",
   data() {
     return {
       loading: true,
-      projects: [] as Project[],
+      projects: [] as IProjectItem[],
     };
   },
   async created() {
@@ -41,12 +46,17 @@ export default defineComponent({
   methods: {
     handleScroll(_: any) {
       const lastScrollPosition = window.scrollY;
+      Object.values(document.getElementsByClassName("project-item")).map(
+        (elem, index) => console.log(index, elem.getBoundingClientRect().top)
+      );
       //console.log(lastScrollPosition, projectsItem[0]);
     },
     async load() {
       try {
         const response = await api.get<Project[]>("/projects");
-        this.projects = response.data;
+        this.projects = response.data.map((elem) => {
+          return { project: elem, active: false };
+        });
         this.loading = false;
       } catch (err) {
         throw Error(err);

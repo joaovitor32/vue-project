@@ -24,7 +24,6 @@
 
 <script lang="ts">
 import { defineComponent, PropType } from "vue";
-import { boolean } from "yup/lib/locale";
 
 interface Project {
   id: number;
@@ -47,9 +46,6 @@ export default defineComponent({
       },
     },
   },
-  created(){
-    console.log(this.transition)
-  }
 });
 </script>
 
