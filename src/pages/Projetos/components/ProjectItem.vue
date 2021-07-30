@@ -1,25 +1,29 @@
 <template>
-  <v-card
-    v-if="projectItem"
-    :elevation="18"
-    :hover="'4dp'"
-    :tile="true"
-    class="content">
-    <v-card-title>{{ projectItem.name }}</v-card-title>
+  <transition
+    :duration="500"
+    name="">
+    <v-card
+      v-if="projectItem"
+      :elevation="18"
+      :hover="'4dp'"
+      :tile="true"
+      class="content">
+      <v-card-title>{{ projectItem.name }}</v-card-title>
 
-    <v-spacer />
+      <v-spacer />
 
-    <v-card-subtitle>{{ projectItem.description }}</v-card-subtitle>
+      <v-card-subtitle>{{ projectItem.description }}</v-card-subtitle>
 
-    <v-spacer />
+      <v-spacer />
 
-    <v-img
-      :width="'56%'"
-      :height="'56%'"
-      class="rounded-img"
-      :src="projectItem.url"
-      :alt="projectItem.name" />
-  </v-card>
+      <v-img
+        :width="'56%'"
+        :height="'56%'"
+        class="rounded-img"
+        :src="projectItem.url"
+        :alt="projectItem.name" />
+    </v-card>
+  </transition>
 </template>
 
 <script lang="ts">

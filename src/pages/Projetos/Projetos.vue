@@ -11,6 +11,7 @@
         :key="item.id">
         <ProjectItem
           class="project-item"
+          :transition="item.active"
           :project-item="item.project" />
       </div>
     </ul>
@@ -44,12 +45,16 @@ export default defineComponent({
     window.removeEventListener("scroll", this.handleScroll);
   },
   methods: {
-    handleScroll(_: any) {
+    handleScroll() {
       const lastScrollPosition = window.scrollY;
       Object.values(document.getElementsByClassName("project-item")).map(
-        (elem, index) => console.log(index, elem.getBoundingClientRect().top)
+        (elem, index) =>{
+          const distanceFromTop =    window.pageYOffset + elem.getBoundingClientRect().top
+          if(lastScrollPosition>distanceFromTop){
+            this.projects[index].active = true;
+          }
+        }
       );
-      //console.log(lastScrollPosition, projectsItem[0]);
     },
     async load() {
       try {
