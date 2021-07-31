@@ -1,29 +1,31 @@
 <template>
-  <transition
-    :duration="500"
-    name="">
-    <v-card
-      v-if="projectItem"
-      :elevation="18"
-      :hover="'4dp'"
-      :tile="true"
-      class="content">
-      <v-card-title>{{ projectItem.name }}</v-card-title>
+  <div v-if="projectItem">
+    <transition
+      :duration="500"
+      name="bounce">
+      <v-card
+        v-if="transition"
+        :elevation="18"
+        :hover="'4dp'"
+        :tile="true"
+        class="content">
+        <v-card-title>{{ projectItem.name }}</v-card-title>
 
-      <v-spacer />
+        <v-spacer />
 
-      <v-card-subtitle>{{ projectItem.description }}</v-card-subtitle>
+        <v-card-subtitle>{{ projectItem.description }}</v-card-subtitle>
 
-      <v-spacer />
+        <v-spacer />
 
-      <v-img
-        :width="'56%'"
-        :height="'56%'"
-        class="rounded-img"
-        :src="projectItem.url"
-        :alt="projectItem.name" />
-    </v-card>
-  </transition>
+        <v-img
+          :width="'56%'"
+          :height="'56%'"
+          class="rounded-img"
+          :src="projectItem.url"
+          :alt="projectItem.name" />
+      </v-card>
+    </transition>
+  </div>
 </template>
 
 <script lang="ts">
@@ -62,11 +64,30 @@ export default defineComponent({
   padding: 50px 40px;
   align-items: center;
   justify-content: space-between;
-  margin: 2% auto;
+  margin: 1rem auto;
   border-radius: 25px;
 }
 .rounded-img {
   border-radius: 50%;
   margin: 2% auto;
+}
+
+/*---------- Transition ---------------*/
+.bounce-enter-active {
+  animation: bounce-in 0.5s;
+}
+.bounce-leave-active {
+  animation: bounce-in 0.5s reverse;
+}
+@keyframes bounce-in {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 </style>

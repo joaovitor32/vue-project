@@ -1,3 +1,4 @@
+ 
 <template>
   <div
     v-if="loading"
@@ -8,7 +9,8 @@
     <ul>
       <div
         v-for="item in projects"
-        :key="item.id">
+        :key="item.id"
+        class="project-container">
         <ProjectItem
           class="project-item"
           :transition="item.active"
@@ -20,15 +22,12 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-
 import api from "../../shared/service/axios";
 import Project from "../../shared/entities/ProjectEntity";
-
 interface IProjectItem {
   active: boolean;
   project: Project;
 }
-
 export default defineComponent({
   name: "ProjetoPage",
   data() {
@@ -47,10 +46,14 @@ export default defineComponent({
   methods: {
     handleScroll() {
       const lastScrollPosition = window.scrollY;
+      const navbarHeight = document
+        .getElementsByClassName("navbar")[0]
+        .getBoundingClientRect().height;
       Object.values(document.getElementsByClassName("project-item")).map(
-        (elem, index) =>{
-          const distanceFromTop =    window.pageYOffset + elem.getBoundingClientRect().top
-          if(lastScrollPosition>distanceFromTop){
+        (elem, index) => {
+          const distanceFromTop =
+            elem.getBoundingClientRect().top - navbarHeight;
+          if (lastScrollPosition > distanceFromTop) {
             this.projects[index].active = true;
           }
         }
@@ -59,8 +62,8 @@ export default defineComponent({
     async load() {
       try {
         const response = await api.get<Project[]>("/projects");
-        this.projects = response.data.map((elem) => {
-          return { project: elem, active: false };
+        this.projects = response.data.map((elem, index) => {
+          return { project: elem, active: index !== 0 ? false : true };
         });
         this.loading = false;
       } catch (err) {
@@ -77,5 +80,9 @@ export default defineComponent({
   position: fixed;
   top: 45%;
   left: 45%;
+}
+.project-container {
+  height: 100vh;
+  overflow-y: scroll;
 }
 </style>
