@@ -1,3 +1,8 @@
+```
+git clone https://github.com/joaovitor32/vue-project
+cd ./vue-project
+```
+
 # vue-project
 
 ## Project setup
